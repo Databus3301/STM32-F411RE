@@ -11,4 +11,4 @@ set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} ${OBJECT_GEN_FLAGS} -O0 -g3 -Wall")
 
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} ${OBJECT_GEN_FLAGS} -nostartfiles -nodefaultlibs -nostdlib -T ${CMAKE_SOURCE_DIR}/linker.ld")
 
-add_executable(blink main.c)
+add_executable(blink external.c)

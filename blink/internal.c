@@ -4,10 +4,6 @@
 #define RCC_BASE      0x40023800
 #define RCC_AHB1ENR   (*(volatile uint32_t*)0x40023830)
 
-#define GPIOD_BASE    0x40020C00
-#define GPIOD_MODER   (*(volatile uint32_t*)0x40020C00)
-#define GPIOD_ODR     (*(volatile uint32_t*)0x40020C14)
-
 #define GPIOA_BASE    0x40020000
 #define GPIOA_MODER   (*(volatile uint32_t*)0x40020000)
 #define GPIOA_ODR     (*(volatile uint32_t*)0x40020014)
@@ -22,7 +18,7 @@ void delay(volatile uint32_t count) {
 
 int main(void) {
     // active clock in rcc 
-    RCC_AHB1ENR |= 1; // GPIOAEN = BIT_0
+    RCC_AHB1ENR |= 1; 		// GPIOA_EN = BIT_0
 
     GPIOA_MODER &= ~(3 << (LED_PIN * 2)); // clear MODER bits
     GPIOA_MODER |=  (1 << (LED_PIN * 2)); // set to GP output PP (MODER=01) 
